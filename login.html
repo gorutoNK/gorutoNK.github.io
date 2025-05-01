@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
+    <!--CDN de font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <!--CDN DE ANIMATE.CSS-->
+   <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="css/video-login-pc.css">
+    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/modal_logins.js"></script>
+    <script src="js/popup.js"></script>
+        
+   <link rel="icon" href="icon/icon.jpeg">
+
+    <title>Cross Army Fitness</title>  
+ <style>
+    @keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+a:hover{
+    color:rgb(6, 6, 6);
+}
+ </style>
+</head>
+<body>
+
+   <!----------------- Modal para mostrar error password -------------------------------------------------------->
+   <div class="modal" id="myModalpassword">
+   <div class="modal-dialog">
+       <div class="modal-content">
+
+           <!-- Cabecera del modal -->
+           <div class="modal-header">
+             <h4 class="modal-title">Ventana Error </h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+           </div>
+
+           <!-- Cuerpo del modal -->
+           <div class="modal-body">
+        <h3 class="alert alert-danger text-center"><i class="fas fa-times fa-2x" style="color: #f70202;"></i><br>Contraseña incorrecta. Por favor, inténtalo de nuevo.<br><br></h3>
+        
+           </div>
+
+           <!-- Pie del modal 
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           </div>-->
+
+       </div>
+   </div>
+</div>
+
+
+   <!----------------- Modal para mostrar error estatus -------------------------------------------------------->
+   <div class="modal" id="myModalestatus">
+     <div class="modal-dialog">
+       <div class="modal-content">
+
+           <!-- Cabecera del modal -->
+           <div class="modal-header">
+             <h4 class="modal-title">Ventana Error</h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+           </div>
+
+           <!-- Cuerpo del modal -->
+           <div class="modal-body">
+        <h3 class="alert alert-danger text-center"><i class="fas fa-times fa-2x" style="color: #f70202;"></i><br>Tu cuenta está inactiva. Por favor, contacta al administrador.<br><br></h3>
+        
+           </div>
+
+           <!-- Pie del modal 
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           </div>-->
+
+       </div>
+   </div>
+</div>
+
+   <!----------------- Modal para mostrar error email -------------------------------------------------------->
+   <div class="modal" id="myModalemail">
+   <div class="modal-dialog">
+       <div class="modal-content">
+
+           <!-- Cabecera del modal -->
+           <div class="modal-header">
+             <h4 class="modal-title">Ventana Error </h4>
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+           </div>
+
+           <!-- Cuerpo del modal -->
+           <div class="modal-body">
+        <h3 class="alert alert-danger text-center"><i class="fas fa-times fa-2x" style="color: #f70202;"></i><br>Correo o número no registrados. Por favor, verifica tus datos.<br><br></h3>
+        
+           </div>
+
+           <!-- Pie del modal 
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+           </div>-->
+
+       </div>
+   </div>
+</div>
+
+<form action="#" method="POST">
+    <div class="box">    
+            <video id="bg-video" src="video/gamer.mp4" Loop muted autoplay></video>           
+          <div class="container animate__animated animate__backInDown" style="cursor: move; position: relative; top: 32px;
+             background: linear-gradient(146deg,#f4ee48, #f4541f, #0f1fff, #f942f3, #006eff); 
+             background-size: 300% 300%; 
+             animation: backgroundAnimation 9s ease infinite;">
+                <div class="top">
+                    <center><img src="../GORUTO GAMER/images//goru.png" class="img-fluid animate__animated animate__heartBeat"  style='animation-duration: 3s;  animation-iteration-count: infinite;' width="100px" alt=""></center>
+                    <header style="text-shadow: 0px 4px 4px #282828;">INICIAR SESIÓN</header>
+                </div>
+            <div class="input-field">
+                <i class='bx bx-user animate__animated animate__swing' style="animation-duration: 3s;  animation-iteration-count: infinite;"></i>
+                <input type="text" class="input" style="text-shadow: 0px 4px 4px #282828;" placeholder="INGRESA TU ID " name="id_jugador" id="id+jugador" oninput="formatoNumero()" maxlength="12" required> 
+                <div class="eye-icon-container">
+                   
+              </div>
+            </div> <br>
+            <div class="input-field">
+                <i class='bx bx-lock-alt animate__animated animate__swing' style="animation-duration: 3s;  animation-iteration-count: infinite;"></i>
+                <input type="Password" style="text-shadow: 0px 4px 4px #282828;" class="input" placeholder="CONTRASEÑA" name="contraseña" id="contraseña" required>
+                   <div class="eye-icon-container">
+                     <i class="toggle-password bx bx-hide animate__animated animate__heartBeat" style="animation-duration: 2s;  animation-iteration-count: infinite;"></i>
+              </div>
+            </div><br>
+            <div class="input-field">
+                <input type="submit"  class="submit animate__animated animate__pulse" style=" animation-duration: 3s;  animation-iteration-count: infinite;" value="INGRESAR" id="ingresar">
+            </div>
+                <div class="two">
+                    <label><a href="registro.html" style="text-shadow: 0px 4px 4px #282828;">NO ERES MIEMBRO ¿REGÍSTRATE?</a></label><br>
+                
+
+                    
+                </div>          
+        </div>
+    </div>
+</form> 
+
+
+
+                                                              
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>  
+    
+
+
+
+    <a href="https://chat.whatsapp.com/KkrPq2g93BK0InPqcjfhZW "  title="Your website directly from Figma" style="  background: linear-gradient(146deg, #2cfa07, #f78b08, #2cfa07, #2cfa07);
+    background-size: 300% 300%; 
+    animation: backgroundAnimation 9s ease infinite; z-index:999999;color:#0c0c0c;background-color:#2cfa07;border-radius:6px;align-items:center;padding:4px;text-decoration:none;display:flex;position:fixed;bottom:16px;right:16px;box-shadow:0 .637473px 1.14745px -1.125px #00000042,0 1.93094px 3.4757px -2.25px #0000003d,0 5.10423px 9.18761px -3.375px #00000031,0 16px 28.8px -4.5px #00000008">
+        <style>@media only screen and (max-width:768px){#made-with-f2w-logo{width:32px;height:32px}}</style>
+        <span style="text-align:center;padding:0 4px 0 2px;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;font-size:12px;font-weight:700;line-height:13px">
+            Grupo de <br> WhatsApp
+        </span>
+     <!-- START LOGO -->
+
+<img src="images/whath-logo.png" alt="Logo" height="42px" style=" background: #f7f6f5; border-radius: 4.99844px; width: 50px; height: 50px;">
+
+  <!-- END LOGO -->
+      </a>
+
+
+<!-- Popup de anuncio -->
+<div id="popup-anuncio" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999;">
+    <div class="modal-dialog" style="background: white; border-radius: 8px; max-width: 500px; margin: 10% auto; padding: 20px; text-align: center;">
+      <button id="cerrar-popup" style="position: absolute; top: 10px; right: 10px; font-size: 20px; border: none; background: none; cursor: pointer;">&times;</button>
+      <img src="images/anuncio.jpg" alt="Anuncio" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
+      <h3 style="margin-bottom: 10px;">¡Gran Promoción!</h3>
+      <p>Participa en nuestro torneo de gaming y gana increíbles premios. ¡No te lo pierdas!</p>
+    </div>
+  </div>
+
+</body>                                                                                     
+</html>
