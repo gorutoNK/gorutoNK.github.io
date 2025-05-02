@@ -228,3 +228,39 @@
 </body>
 
 </html>
+
+
+
+<script>
+    
+  document.getElementById("button-responsive").addEventListener("click", function () {
+    const nombre = document.getElementById("_input_").value;
+    const idjugador = document.getElementById("_input_2").value;
+    const pais = document.getElementById("_input_3").value;
+    const redsocial = document.getElementById("_input_4").value;
+    const telefono = document.getElementById("_input_5").value;
+    const alias = document.getElementById("_input_6").value;
+
+    const datos = {
+      nombre,
+      idjugador,
+      pais,
+      redsocial,
+      telefono,
+      alias
+    };
+
+    const url = "https://script.google.com/macros/s/AKfycbxwKDSPxNtoJixb9J10IElDB9Z6YgTF2FLNeFjtY5Vm8SI93fbFVUjFOYih2FEppy_J/exec";
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(datos),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => alert("¡Registro enviado con éxito!"))
+    .catch(error => alert("Error al enviar los datos"));
+  });
+
+</script>
