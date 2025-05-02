@@ -176,6 +176,8 @@
                 </svg>
             </div>
         </ul>
+
+        
         <div id="_div_6">
             <div id="Block-text">
                 <span id="nuestras_redes_sociales" class="pointer-events-none"><span id="__15" class="text">nuestras redes sociales</span></span>
@@ -225,14 +227,8 @@
 
   <!-- END LOGO -->
       </a>
-</body>
-
-</html>
-
-
 
 <script>
-    
   document.getElementById("button-responsive").addEventListener("click", function () {
     const nombre = document.getElementById("_input_").value;
     const idjugador = document.getElementById("_input_2").value;
@@ -250,7 +246,9 @@
       alias
     };
 
-    const url = "https://script.google.com/macros/s/AKfycbxwKDSPxNtoJixb9J10IElDB9Z6YgTF2FLNeFjtY5Vm8SI93fbFVUjFOYih2FEppy_J/exec";
+    console.log(datos); // Para depuración
+
+    const url = "https://script.google.com/macros/s/AKfycbxwKDSPxNtoJixb9J10IElDB9Z6YgTF2FLNeFjtY5Vm8SI93fbFVUjFOYih2FEppy_J/exec"; // <--- REEMPLAZA AQUÍ
 
     fetch(url, {
       method: "POST",
@@ -262,5 +260,8 @@
     .then(response => alert("¡Registro enviado con éxito!"))
     .catch(error => alert("Error al enviar los datos"));
   });
-
 </script>
+</body>
+
+
+</html>
