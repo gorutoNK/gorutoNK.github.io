@@ -1,0 +1,19 @@
+
+.modal-dialog {
+    margin-top: 220px; /* Ajusta la cantidad de margen para centrar el modal o a gusto del disenador*/
+  }
+  
+  .eye-icon-container {
+      position: absolute;
+      top: 50%;
+      right: 40px;
+      transform: translateY(-50%);
+  }
+  
+  .toggle-password {
+      cursor: pointer;
+  }
+  .input-field {
+      position: relative;
+      width: 100%;
+  }
