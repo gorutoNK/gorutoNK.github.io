@@ -13,7 +13,17 @@ function manejarClick() {
   
   // Validar campos obligatorios
   if (!nombre || !idjugador || !pais || !telefono || !fecharegistro) { 
-    alert("Por favor, completa todos los campos obligatorios.");
+     Swal.fire({
+      title: 'Advertencia',
+      text: 'Por favor, completa todos los campos obligatorios.',
+      icon: 'warning',
+      confirmButtonText: 'Regresar'
+    }).then((result) => {
+     
+        window.history.go(1);
+     
+    });
+    // alert("Por favor, completa todos los campos obligatorios.");
     return; // Detiene el envío
   }
 
@@ -43,7 +53,18 @@ function manejarClick() {
     body: JSON.stringify(datos)
   })
   .then(() => {
-    alert("¡Registro enviado!");
+
+      Swal.fire({
+      title: 'Listo',
+      text: '¡Registro guardado!',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+     
+        window.history.go(1);
+     
+    });
+    //alert("¡Registro enviado!");
     // Limpiar los campos del formulario después del envío exitoso
     document.getElementById("_input_type_text_3").value = "";
     document.getElementById("_input_2").value = "";
@@ -87,7 +108,7 @@ document.getElementById("_Button_").addEventListener("click", manejarClick);
 document.getElementById("_Button_table_").addEventListener("click", manejarClick);
 document.getElementById("_Button_mobilesdf_").addEventListener("click", manejarClick);
 
-////////////////////////////////////////////////////////////////////////
+
 
 ///Cuando el usuario escriba en un campo en una vista (ej. desktop), los campos ocultos de otras vistas se actualizarán 
 // en tiempo real. Así, si cambia a móvil, los datos ya estarán ahí sin necesidad de recargarlos ni reescribirlos.
