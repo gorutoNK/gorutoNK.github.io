@@ -779,15 +779,22 @@
 
 <script>
 function manejarClick() {
-  const nombre = document.getElementById("_input_type_text_3").value;
-  const idjugador = document.getElementById("_input_2").value;
-  const pais = document.getElementById("_input_3").value;
-  const redsocial = document.getElementById("_input_4").value;
-  const telefono = document.getElementById("_input_5").value;
-  const alias = document.getElementById("_input_6").value;
-  const reclutado = document.getElementById("_input_type_text_4").value;
-  const fecharegistro = document.getElementById("_input_type_date_1").value;
-  const referencia = document.getElementById("_input_type_text_5").value;
+  const nombre = document.getElementById("_input_type_text_3").value.trim();//Se usa .trim() para evitar que un campo lleno con espacios pase la validación.
+  const idjugador = document.getElementById("_input_2").value.trim();
+  const pais = document.getElementById("_input_3").value.trim();
+  const redsocial = document.getElementById("_input_4").value.trim();
+  const telefono = document.getElementById("_input_5").value.trim();
+  const alias = document.getElementById("_input_6").value.trim();
+  const reclutado = document.getElementById("_input_type_text_4").value.trim();
+  const fecharegistro = document.getElementById("_input_type_date_1").value.trim();
+  const referencia = document.getElementById("_input_type_text_5").value.trim();
+
+  
+  // Validar campos obligatorios
+  if (!nombre || !idjugador || !pais || !telefono || !fecharegistro) { 
+    alert("Por favor, completa todos los campos obligatorios.");
+    return; // Detiene el envío
+  }
 
   
   const datos = {
