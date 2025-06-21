@@ -1,0 +1,2141 @@
+@font-face {
+    font-family: Inria Serif;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/inriaserif/v17/fC1lPYxPY3rXxEndZJAzN3Sldy39rw.woff2)format("woff2");
+    unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
+}
+
+@font-face {
+    font-family: Inria Serif;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/inriaserif/v17/fC1lPYxPY3rXxEndZJAzN3Srdy0.woff2)format("woff2");
+    unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+
+@font-face {
+    font-family: Inria Serif;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/inriaserif/v17/fC14PYxPY3rXxEndZJAzN3wQUjjMjl2daw.woff2)format("woff2");
+    unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
+}
+
+@font-face {
+    font-family: Inria Serif;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/inriaserif/v17/fC14PYxPY3rXxEndZJAzN3wQUjjCjl0.woff2)format("woff2");
+    unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+
+*,
+:before,
+:after {
+    box-sizing: border-box
+}
+
+body {
+    -webkit-font-smoothing: antialiased
+}
+
+textarea:focus-visible {
+    outline: none
+}
+
+button {
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    --webkit-appearance: none
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit
+}
+
+input {
+    font: inherit;
+    background-color: inherit;
+    border: none;
+    outline: none
+}
+
+button {
+    font: inherit;
+    background: 0 0;
+    background-color: inherit;
+    color: inherit;
+    border-style: none;
+    width: auto;
+    line-height: normal;
+    overflow: visible
+}
+
+textarea,
+select {
+    font: inherit;
+    background-color: inherit
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block
+}
+
+[data-reaction-click] {
+    cursor: pointer
+}
+
+[data-visible=false] {
+    display: none !important
+}
+
+.before-hidden:before,
+.after-hidden:after {
+    display: none
+}
+
+.before-visible:before,
+.after-visible:after {
+    content: ""
+}
+
+::placeholder {
+    color: inherit;
+    opacity: .54
+}
+
+body * {
+    scrollbar-width: none
+}
+
+body ::-webkit-scrollbar {
+    display: none
+}
+
+[name=honey-pot-field] {
+    display: none !important
+}
+
+.text {
+    white-space: pre-wrap;
+    overflow-wrap: break-word
+}
+
+.pointer-events-none {
+    pointer-events: none
+}
+
+
+#_ {
+    background-color: #e8e0d2;
+    min-height: 100vh;
+    display: grid
+}
+
+#Mobile {
+    grid-column-gap: 10px;
+    background-color: #e8e0d2;
+    border-radius: 0;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 360px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    position: relative
+}
+
+@keyframes cambiarColores {
+  0%   { background-color: #c96aa3; }
+  20%  { background-color: #f4a261; }
+  40%  { background-color: #e051e7; }
+  60%  { background-color: #2a9d8f; }
+  80%  { background-color: #63afcd; }
+  100% { background-color: #e8e0d2; } /* Vuelve al inicio para hacer bucle */
+}
+
+#Mobile {
+  animation: cambiarColores 8s infinite;
+}
+
+
+.lluvia-corazones {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.lluvia-corazones::before,
+.lluvia-corazones::after {
+  content: '💖';
+  position: absolute;
+  animation: caer 5s linear infinite;
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+#Component_3 {
+    --f2w-order: 0;
+    border-radius: 0;
+    flex-shrink: 0;
+    width: 340px;
+    height: 586px;
+    margin: 0;
+    position: relative
+}
+
+#back {
+    --f2w-order: 0;
+    transform-origin: 0 0;
+    border-radius: 8px;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: 340px;
+    height: 586px;
+    padding: 74px 0 0;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 340px;
+    transform: scaleX(-1)
+}
+
+#carta {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_0 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_1 {
+    clip-path: url(#def_0)
+}
+
+#Polygon_2,
+#Polygon_4 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3 {
+    fill-rule: nonzero;
+    fill: #bc4242e6
+}
+
+#carta_2 {
+    --f2w-order: 0;
+    opacity: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    display: none;
+    position: relative
+}
+
+#carta_3 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_4 {
+    clip-path: url(#def_0_0)
+}
+
+#Polygon_2_0,
+#Polygon_4_0 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_0 {
+    fill-rule: nonzero;
+    fill: #bc4242e6
+}
+
+#carta_5 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_6 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_7 {
+    clip-path: url(#def_0_1)
+}
+
+#Polygon_2_1,
+#Polygon_4_1,
+#Polygon_3_1 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_2 {
+    stroke: #580f0f73;
+    stroke-width: 2px
+}
+
+#Valentine_Letter_1 {
+    fill-rule: nonzero;
+    fill: url(#def_3)
+}
+
+#carta_8 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_9 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_10 {
+    clip-path: url(#def_0_2)
+}
+
+#Polygon_2_2,
+#Polygon_4_2 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_3 {
+    fill-rule: nonzero;
+    fill: #bc4242e6
+}
+
+#carta_11 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_12 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_13 {
+    clip-path: url(#def_0_3)
+}
+
+#Polygon_2_3,
+#Polygon_4_3,
+#Polygon_3_4 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_5 {
+    stroke: #580f0f73;
+    stroke-width: 2px
+}
+
+#Valentine_Letter_1_0 {
+    fill-rule: nonzero;
+    fill: url(#def_3_0)
+}
+
+#Frame_1 {
+    --f2w-order: 1;
+    aspect-ratio: 1.49;
+    border-radius: 0;
+    flex-flow: column;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: auto;
+    height: 188px;
+    margin: 0;
+    padding: 80px 0;
+    display: flex;
+    position: relative
+}
+
+#Ellipse_1 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_0 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#front {
+    --f2w-order: 1;
+    border-radius: 8px;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: 340px;
+    height: 586px;
+    padding: 74px 0 0;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+#carta_14 {
+    --f2w-order: 0;
+    aspect-ratio: 1.61;
+    background-color: #e14646;
+    border-radius: 0;
+    flex-shrink: 0;
+    width: auto;
+    height: 178.1px;
+    margin: 0;
+    position: relative;
+    overflow: hidden
+}
+
+#block-text {
+    grid-column-gap: 28px;
+    --f2w-order: 0;
+    border-radius: 0;
+    flex-flow: wrap;
+    place-content: start flex-start;
+    align-items: start;
+    row-gap: 0;
+    width: 176px;
+    height: 63px;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: calc(50% - 32.1px);
+    left: calc(50% - 88px)
+}
+
+#I86_751_30_24 {
+    text-align: center;
+    color: #fff;
+    --f2w-order: 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    flex-shrink: 0;
+    width: 176px;
+    height: 31px;
+    margin: 0;
+    font-size: 16px;
+    display: inline;
+    position: relative
+}
+
+#__15 {
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inria Serif;
+    font-size: 16px;
+    font-weight: 400
+}
+
+#__16 {
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inria Serif;
+    font-size: 16px;
+    font-weight: 700
+}
+
+#__17 {
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inria Serif;
+    font-size: 16px;
+    font-weight: 400
+}
+
+#I86_751_30_25 {
+    text-align: center;
+    color: #fff;
+    --f2w-order: 1;
+    -webkit-background-clip: text;
+    background-clip: text;
+    flex-shrink: 0;
+    width: 176px;
+    height: 31px;
+    margin: 0;
+    font-size: 16px;
+    display: inline;
+    position: relative
+}
+
+#__19 {
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inria Serif;
+    font-size: 16px;
+    font-weight: 400
+}
+
+#__20 {
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inria Serif;
+    font-size: 16px;
+    font-weight: 700
+}
+
+#Couple_Heart_1 {
+    --f2w-order: 2;
+    aspect-ratio: 1;
+    border-radius: 0;
+    width: auto;
+    height: 100px;
+    position: absolute;
+    top: calc(50% - 50.4px);
+    left: -28px;
+    overflow: hidden
+}
+
+#__21 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#zlove_labels_25_1 {
+    --f2w-order: 1;
+    aspect-ratio: 1.82;
+    border-radius: 0;
+    width: auto;
+    height: 15px;
+    position: absolute;
+    top: 20.1px;
+    left: 235px;
+    overflow: hidden
+}
+
+#__22 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#Couple_Walk_1 {
+    --f2w-order: 2;
+    aspect-ratio: 1;
+    opacity: 0;
+    border-radius: 0;
+    width: auto;
+    height: 100px;
+    display: none;
+    position: absolute;
+    top: 38.1px;
+    left: calc(50% - 138px);
+    overflow: hidden
+}
+
+#__23 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#Frame_1_0 {
+    --f2w-order: 1;
+    aspect-ratio: 1.49;
+    opacity: 0;
+    border-radius: 0;
+    flex-flow: column;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: auto;
+    height: 188px;
+    margin: 0;
+    padding: 80px 0;
+    display: flex;
+    position: relative
+}
+
+#Ellipse_1_1 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_2 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_3 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    opacity: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    display: none;
+    position: relative
+}
+
+#Ellipse_1_4 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_5 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 160px;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_6 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_7 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_8 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_9 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 160px;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_10 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#carta_15 {
+    --f2w-order: 0;
+    opacity: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    display: none;
+    position: relative
+}
+
+#carta_16 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_17 {
+    clip-path: url(#def_0_4)
+}
+
+#Polygon_2_4,
+#Polygon_4_4,
+#Polygon_3_6 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_7 {
+    stroke: #580f0f73;
+    stroke-width: 2px
+}
+
+#Valentine_Letter_1_1 {
+    fill-rule: nonzero;
+    fill: url(#def_3_1)
+}
+
+#carta_18 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_19 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_20 {
+    clip-path: url(#def_0_5)
+}
+
+#Polygon_2_5,
+#Polygon_4_5,
+#Polygon_3_8 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_9 {
+    stroke: #580f0f73;
+    stroke-width: 2px
+}
+
+#Valentine_Letter_1_2 {
+    fill-rule: nonzero;
+    fill: url(#def_3_2)
+}
+
+#carta_21 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_22 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_23 {
+    clip-path: url(#def_0_6)
+}
+
+#Rectangle_1 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#Polygon_2_6,
+#Polygon_4_6,
+#Polygon_3_10 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Valentine_Letter_1_3 {
+    fill-rule: nonzero;
+    fill: url(#def_2_3)
+}
+
+#carta_24 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_25 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_26 {
+    clip-path: url(#def_0_7)
+}
+
+#Rectangle_1_0 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#Polygon_2_7,
+#Polygon_4_7,
+#Polygon_3_11 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Valentine_Letter_1_4 {
+    fill-rule: nonzero;
+    fill: url(#def_2_4)
+}
+
+#carta_27 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_28 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_29 {
+    clip-path: url(#def_0_8)
+}
+
+#Rectangle_1_1 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB {
+    fill-rule: nonzero;
+    fill: url(#def_2_5)
+}
+
+#Polygon_2_8,
+#Polygon_4_8,
+#Polygon_3_12 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Valentine_Letter_1_5 {
+    fill-rule: nonzero;
+    fill: url(#def_4)
+}
+
+#carta_30 {
+    --f2w-order: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px
+}
+
+#carta_31 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_32 {
+    clip-path: url(#def_0_9)
+}
+
+#Rectangle_1_2 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_0 {
+    fill-rule: nonzero;
+    fill: url(#def_2_6)
+}
+
+#Polygon_2_9,
+#Polygon_4_9 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Valentine_Letter_1_6 {
+    fill-rule: nonzero;
+    fill: url(#def_4_0)
+}
+
+#carta_33 {
+    --f2w-order: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px
+}
+
+#carta_34 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_35 {
+    clip-path: url(#def_0_10)
+}
+
+#Rectangle_1_3 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_1 {
+    fill-rule: nonzero;
+    fill: url(#def_2_7)
+}
+
+#Polygon_2_10,
+#Polygon_4_10 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Valentine_Letter_1_7 {
+    fill-rule: nonzero;
+    fill: url(#def_4_1)
+}
+
+#carta_36 {
+    --f2w-order: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px
+}
+
+#carta_37 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_38 {
+    clip-path: url(#def_0_11)
+}
+
+#Rectangle_1_4 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_2 {
+    fill-rule: nonzero;
+    fill: url(#def_2_8)
+}
+
+#Polygon_2_11,
+#Polygon_4_11 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Valentine_Letter_1_8 {
+    fill-rule: nonzero;
+    fill: url(#def_4_2)
+}
+
+#carta_39 {
+    --f2w-order: 1;
+    background-color: #e14646;
+    border-radius: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px;
+    overflow: hidden
+}
+
+#Valentine_Letter_1_9 {
+    --f2w-order: 0;
+    aspect-ratio: 1;
+    border-radius: 0;
+    width: auto;
+    height: 50px;
+    position: absolute;
+    top: 64.1px;
+    left: calc(50% - 25px);
+    overflow: hidden
+}
+
+#__54 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#carta_40,
+#carta_41,
+#carta_42,
+#carta_43 {
+    --f2w-order: 1;
+    background-color: #e14646;
+    border-radius: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px;
+    overflow: hidden
+}
+
+#carta_44 {
+    --f2w-order: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px
+}
+
+#carta_45 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_46 {
+    clip-path: url(#def_0_12)
+}
+
+#Rectangle_1_5 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_3 {
+    fill-rule: nonzero;
+    fill: url(#def_2_9)
+}
+
+#Polygon_2_12,
+#Polygon_4_12 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#carta_47 {
+    --f2w-order: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px
+}
+
+#carta_48 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_49 {
+    clip-path: url(#def_0_13)
+}
+
+#Rectangle_1_6 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_4 {
+    fill-rule: nonzero;
+    fill: url(#def_2_10)
+}
+
+#Polygon_2_13,
+#Polygon_4_13 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#carta_50 {
+    --f2w-order: 0;
+    width: 286px;
+    height: 178.1px;
+    position: absolute;
+    top: 141.9px;
+    left: 27px
+}
+
+#carta_51 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_52 {
+    clip-path: url(#def_0_14)
+}
+
+#Rectangle_1_7 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_5 {
+    fill-rule: nonzero;
+    fill: url(#def_2_11)
+}
+
+#Polygon_2_14,
+#Polygon_4_14 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#carta_53 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_54 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_55 {
+    clip-path: url(#def_0_15)
+}
+
+#Rectangle_1_8 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_6 {
+    fill-rule: nonzero;
+    fill: url(#def_2_12)
+}
+
+#Polygon_2_15,
+#Polygon_4_15,
+#Polygon_3_13 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Love_Message_1 {
+    fill-rule: nonzero;
+    fill: url(#def_4_3)
+}
+
+#carta_56 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_57 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_58 {
+    clip-path: url(#def_0_16)
+}
+
+#Rectangle_1_9 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#Polygon_2_16,
+#Polygon_4_16,
+#Polygon_3_14 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Love_Message_1_0 {
+    fill-rule: nonzero;
+    fill: url(#def_2_13)
+}
+
+#carta_59 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_60 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_61 {
+    clip-path: url(#def_0_17)
+}
+
+#Rectangle_1_10 {
+    fill-rule: nonzero;
+    fill: #fff
+}
+
+#Polygon_2_17,
+#Polygon_4_17,
+#Polygon_3_15 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Love_Message_1_1 {
+    fill-rule: nonzero;
+    fill: url(#def_2_14)
+}
+
+#carta_62 {
+    --f2w-order: 0;
+    flex-shrink: 0;
+    width: 286px;
+    height: 178.1px;
+    margin: 0;
+    position: relative
+}
+
+#carta_63 {
+    fill-rule: nonzero;
+    fill: #e14646
+}
+
+#carta_64 {
+    clip-path: url(#def_0_18)
+}
+
+#Polygon_2_18,
+#Polygon_4_18,
+#Polygon_3_16 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_17 {
+    stroke: #580f0f73;
+    stroke-width: 2px
+}
+
+#Frame_1_1 {
+    --f2w-order: 1;
+    aspect-ratio: 1.49;
+    opacity: 0;
+    border-radius: 0;
+    flex-flow: column;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: auto;
+    height: 188px;
+    margin: 0;
+    padding: 80px 0;
+    display: none;
+    position: relative
+}
+
+#Ellipse_1_11 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    opacity: 0;
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    display: none;
+    position: relative
+}
+
+#Ellipse_1_12 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_13 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_14 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_15 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_16 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_17 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_18 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_19 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_20 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_21 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_22 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_23 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_24 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_25 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_26 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_27 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_28 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_29 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_30 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_31 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_32 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_33 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_34 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_35 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_36 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_37 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_38 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_39 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_40 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_41 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_42 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_43 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_44 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_45 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_46 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_47 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_48 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Ellipse_1_49 {
+    --f2w-order: 0;
+    filter: blur(20px);
+    flex-shrink: 0;
+    width: 100%;
+    height: 19px;
+    margin: 0;
+    position: relative
+}
+
+#Ellipse_1_50 {
+    fill-rule: nonzero;
+    fill: #0e0e0ee6
+}
+
+#Polygon_3_18 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    opacity: 0;
+    width: 84.1%;
+    height: 9px;
+    display: none;
+    position: absolute;
+    top: 133px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_19 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_20 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 9px;
+    position: absolute;
+    top: 133px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_21 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_22 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 24px;
+    position: absolute;
+    top: 118px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_23 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_24 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_25 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_26 {
+    --f2w-order: 0;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_27 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_28 {
+    --f2w-order: 0;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_29 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_30 {
+    --f2w-order: 0;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_31 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_32 {
+    --f2w-order: 0;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_33 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_34 {
+    --f2w-order: 0;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_35 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_36 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 81px;
+    position: absolute;
+    top: 61px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_37 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_38 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 24px;
+    position: absolute;
+    top: 118px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_39 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_3_40 {
+    --f2w-order: 1;
+    transform-origin: 0 0;
+    filter: drop-shadow(0 4px 4px #00000040);
+    width: 84.1%;
+    height: 9px;
+    position: absolute;
+    top: 133px;
+    left: 92.1%;
+    right: -76.2%;
+    transform: scaleX(-1)
+}
+
+#Polygon_3_41 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Rectangle_1_11 {
+    --f2w-order: 3;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 258px;
+    height: 135px;
+    display: none;
+    position: absolute;
+    top: 96px;
+    left: calc(50% - 129px)
+}
+
+#Flying_heart_1 {
+    --f2w-order: 4;
+    aspect-ratio: .99;
+    opacity: 0;
+    border-radius: 0;
+    width: auto;
+    height: 50px;
+    display: none;
+    position: absolute;
+    top: 96px;
+    left: 270px;
+    overflow: hidden
+}
+
+#__77 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#I86_751_86_207 {
+    text-align: center;
+    color: #bc4242;
+    --f2w-order: 5;
+    filter: drop-shadow(0 4px 4px #00000040);
+    opacity: 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    width: 130px;
+    font-family: Inria Serif;
+    font-size: 14px;
+    font-weight: 400;
+    display: none;
+    position: absolute;
+    top: 25.4%;
+    bottom: 63%;
+    left: calc(50% - 65px)
+}
+
+#__78 {
+    color: #bc4242;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inria Serif;
+    font-size: 14px;
+    font-weight: 400
+}
+
+#https_lottiefiles_com_animations_green_heart_GSNQTjVqBB_7 {
+    --f2w-order: 6;
+    aspect-ratio: 1;
+    opacity: 0;
+    width: auto;
+    height: 30px;
+    display: none;
+    position: absolute;
+    top: 109px;
+    left: calc(50% - 15px)
+}
+
+#Polygon_2_19 {
+    --f2w-order: 7;
+    transform-origin: 0 0;
+    opacity: 0;
+    width: 178px;
+    height: 143px;
+    display: none;
+    position: absolute;
+    top: calc(50% - 151.1px);
+    right: -8px;
+    transform: rotate(-90deg)scaleX(-1)
+}
+
+#Polygon_2_20 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#Polygon_4_19 {
+    --f2w-order: 8;
+    transform-origin: 0 0;
+    opacity: 0;
+    width: 178px;
+    height: 143px;
+    display: none;
+    position: absolute;
+    top: calc(50% - 151.1px);
+    left: 170px;
+    transform: rotate(90deg)
+}
+
+#Polygon_4_20 {
+    fill-rule: nonzero;
+    fill: #bc4242
+}
+
+#pngtree_cartoon_red_rose_bouquet_for_valentine_day_isolated_vector_png_image_5721687_Photoroom_1 {
+    --f2w-order: 5;
+    aspect-ratio: 1;
+    opacity: 0;
+    border-radius: 0;
+    width: auto;
+    height: 50px;
+    display: none;
+    position: absolute;
+    top: 166px;
+    left: calc(50% - 25px);
+    overflow: hidden
+}
+
+#__82 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#https_lottiefiles_com_animations_heart_beat_vwbMQsieLX {
+    --f2w-order: 7;
+    aspect-ratio: 1;
+    opacity: 0;
+    width: auto;
+    height: 60px;
+    display: none;
+    position: absolute;
+    top: 18px;
+    left: calc(50% - 25px)
+}
+
+#Love_Message_1_2 {
+    --f2w-order: 10;
+    aspect-ratio: 1;
+    opacity: 0;
+    border-radius: 0;
+    width: auto;
+    height: 50px;
+    display: none;
+    position: absolute;
+    top: 206px;
+    left: calc(50% - 25px);
+    overflow: hidden
+}
+
+#__83 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#Valentine_Letter_1_10 {
+    --f2w-order: 2;
+    aspect-ratio: 1;
+    opacity: 0;
+    border-radius: 0;
+    width: auto;
+    height: 50px;
+    display: none;
+    position: absolute;
+    top: 206px;
+    left: calc(50% - 25px);
+    overflow: hidden
+}
+
+#__84 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+#Cupid_1 {
+    --f2w-order: 1;
+    aspect-ratio: 1;
+    border-radius: 0;
+    width: auto;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 170px);
+    overflow: hidden
+}
+
+#__85 {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0
+}
+
+article.prose {
+    line-height: 1.75;
+    display: contents
+}
+
+article.prose a {
+    font-weight: 500;
+    text-decoration: underline
+}
+
+article.prose h1 {
+    margin-block: 0 1.23em;
+    font-size: 2.25em;
+    line-height: 1.11
+}
+
+article.prose h2 {
+    margin-block: 2em 1em;
+    font-size: 1.5em;
+    line-height: 1.34
+}
+
+article.prose h3 {
+    margin-block: 1.6em .6em;
+    font-size: 1.25em;
+    line-height: 1.6
+}
+
+article.prose h4 {
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+    line-height: 1.5
+}
+
+article.prose img {
+    width: 100%;
+    margin-block: 2em
+}
+
+article.prose blockquote {
+    margin-block: 1.6em;
+    padding: .75em 1.25em
+}
+
+article.prose ul,
+article.prose ol {
+    padding-inline-start: 1.5em
+}
+
+article.prose table {
+    table-layout: auto;
+    width: 100%;
+    margin: 1.5em 0
+}
+
+article.prose thead th {
+    vertical-align: bottom;
+    font-weight: 600
+}
+
+article.prose tbody td {
+    vertical-align: baseline
+}
+
+article.prose tfoot td {
+    vertical-align: top
+}
+
+article.prose th,
+article.prose td {
+    text-align: start;
+    padding: .75em
+}
+
+article.prose thead th:first-child,
+article.prose tbody td:first-child,
+article.prose tfoot td:first-child {
+    padding-inline-start: 0
+}
+
+article.prose thead th:last-child,
+article.prose tbody td:last-child,
+article.prose tfoot td:last-child {
+    padding-inline-end: 0
+}
+
+article.prose thead {
+    box-shadow: 0 1px #ffffffbf, 0 1px
+}
+
+article.prose tbody tr {
+    box-shadow: 0 1px #ffffffd9, 0 1px
+}
+
+article.prose hr {
+    opacity: .3;
+    margin: 3em 0
+}
